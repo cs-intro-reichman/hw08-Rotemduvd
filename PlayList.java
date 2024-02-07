@@ -119,7 +119,7 @@ class PlayList {
           
 
         }else{
-            for (int p = size-1; p > i; p--){
+            for (int p = size; p > i; p--){
                 tracks[p] = tracks[p-1];
             }
             tracks[i]=track;
