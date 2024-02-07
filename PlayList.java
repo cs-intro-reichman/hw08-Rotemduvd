@@ -64,10 +64,11 @@ class PlayList {
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
      public void removeLast() {
-        for (int i = maxSize-1; i >= 0; i-- ){
+        for (int i = size-1; i >= 0; i-- ){
             if (tracks[i]!= null) {
                 tracks[i] = null; 
                 this.size--; 
+                break;
             }
             
 
@@ -198,7 +199,7 @@ class PlayList {
      *  If start is negative or greater than size - 1, returns -1.
      */
     private int minIndex(int start) {
-       if (start < 0 || start > maxSize-1) {
+       if (start < 0 || start > size) {
         return -1; 
        }
 
@@ -206,7 +207,7 @@ class PlayList {
        int minDuration = 10000;
 
        for (int i = start; i < maxSize; i++){
-        if (tracks[i].getDuration() < minDuration) {
+        if (tracks[i] != null && tracks[i].getDuration() < minDuration) {
             minIndex = i;
             minDuration = tracks[i].getDuration();
         }
